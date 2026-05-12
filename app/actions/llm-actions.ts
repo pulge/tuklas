@@ -18,15 +18,28 @@ export async function getAvailableModelsAction(
     
     try {
       const res = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models?key=${activeKey}`,
+        `https://generativelanguage.googleapis.com/v1beta/models?key=${activeKey.trim()}`,
         { method: "GET" }
       );
+
+      const text = await res.text();
+      
       if (!res.ok) {
-        if (res.status === 401 || res.status === 403) return { missingKey: true, error: "Invalid Gemini API Key" };
-        throw new Error(`Gemini API error: ${res.status}`);
+        let errorMessage = `Gemini API error: ${res.status}`;
+        try {
+          const errorData = JSON.parse(text) as { error?: { message?: string } };
+          if (errorData.error?.message) {
+            errorMessage = errorData.error.message;
+          }
+        } catch { /* use default message */ }
+
+        if (res.status === 401 || res.status === 403) {
+          return { missingKey: true, error: errorMessage };
+        }
+        throw new Error(errorMessage);
       }
       
-      const data = await res.json() as { 
+      const data = JSON.parse(text) as { 
         models?: Array<{ name: string; displayName: string; supportedGenerationMethods: string[] }> 
       };
       
@@ -40,7 +53,7 @@ export async function getAvailableModelsAction(
       return { models };
     } catch (e) {
       console.error("[Gemini Models Error]", e);
-      return { error: "Failed to fetch Gemini models." };
+      return { error: e instanceof Error ? e.message : "Failed to fetch Gemini models." };
     }
   }
 

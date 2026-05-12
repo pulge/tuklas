@@ -287,7 +287,9 @@ export function IntegrationsClient({
                   {currentStatus.status === 'error' && (
                     <div className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-                      <span className="text-[10px] font-black uppercase tracking-widest text-red-500">Connection Error</span>
+                      <span className="text-[10px] font-black uppercase tracking-widest text-red-500">
+                        {currentStatus.error || "Connection Error"}
+                      </span>
                     </div>
                   )}
                 </div>
@@ -304,11 +306,21 @@ export function IntegrationsClient({
                 subtitle="Primary LLM"
                 description="Recommended for fast, high-quality cover letter generation and resume parsing."
                 icon={<Sparkles size={24} />}
-                status={geminiStatus.status === 'valid' ? 'connected' : geminiStatus.status === 'invalid' ? 'error' : getStatus('gemini')}
+                status={
+                  geminiStatus.status === 'valid' 
+                    ? 'connected' 
+                    : (geminiStatus.status === 'error' || geminiStatus.status === 'invalid') 
+                      ? 'error' 
+                      : getStatus('gemini')
+                }
                 statusText={
                   geminiStatus.status === 'valid'
                     ? "Online"
-                    : geminiStatus.status === 'invalid' ? "Invalid API Key" : undefined
+                    : geminiStatus.status === 'invalid' 
+                      ? "Invalid API Key" 
+                      : geminiStatus.status === 'error' 
+                        ? "Connection Error" 
+                        : undefined
                 }
                 helperText={
                   !isGeminiConnected
@@ -367,11 +379,21 @@ export function IntegrationsClient({
                 subtitle="Universal Gateway"
                 description="Access Claude, GPT-4, and other models as fallbacks for generation."
                 icon={<Bot size={24} />}
-                status={openRouterStatus.status === 'valid' ? 'connected' : openRouterStatus.status === 'invalid' ? 'error' : getStatus('openrouter')}
+                status={
+                  openRouterStatus.status === 'valid' 
+                    ? 'connected' 
+                    : (openRouterStatus.status === 'error' || openRouterStatus.status === 'invalid') 
+                      ? 'error' 
+                      : getStatus('openrouter')
+                }
                 statusText={
                   openRouterStatus.status === 'valid'
                     ? "Online"
-                    : openRouterStatus.status === 'invalid' ? "Invalid API Key" : undefined
+                    : openRouterStatus.status === 'invalid' 
+                      ? "Invalid API Key" 
+                      : openRouterStatus.status === 'error' 
+                        ? "Connection Error" 
+                        : undefined
                 }
                 helperText={
                   !isOpenRouterConnected

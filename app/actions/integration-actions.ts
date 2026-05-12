@@ -39,12 +39,16 @@ export async function saveIntegration(
       }
     }
 
-    if (Object.keys(sanitized).length === 0) {
-      throw new Error(`No valid config keys provided for ${service}.`);
-    }
+    // Fetch existing configuration to merge
+    const existingConfig = await getIntegration(service) || {};
+    const mergedConfig = { ...existingConfig, ...sanitized };
 
-    const primaryKey = sanitized.key || sanitized.gmail_client_secret || 'dummy_key';
-    await integrationRepository.save(service, primaryKey, sanitized);
+    // Preserve the primary API key if not provided in the update
+    const newKey = sanitized.key || sanitized.gmail_client_secret;
+    const existingKey = await integrationRepository.get(service);
+    const finalKey = newKey || existingKey || 'dummy_key';
+
+    await integrationRepository.save(service, finalKey, mergedConfig);
 
     await logActivity({
       action: 'key_update',

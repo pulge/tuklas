@@ -8,7 +8,12 @@ export const integrationRepository: IntegrationRepository = {
   async get(provider: string): Promise<string | null> {
     const [row] = await db.select().from(integrations).where(eq(integrations.provider, provider));
     if (!row) return null;
-    return decrypt(row.encryptedKey);
+    try {
+      return decrypt(row.encryptedKey);
+    } catch (err) {
+      console.warn(`[integrationRepository] Failed to decrypt key for ${provider}, returning as-is.`, err);
+      return row.encryptedKey;
+    }
   },
   async save(provider: string, key: string, config?: object): Promise<void> {
     const encryptedKey = encrypt(key);
