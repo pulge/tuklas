@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  /* Fonts */
+  --font-inter: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas;
+
+  /* Colors - Tailwind 4 style using CSS variables for theme switching */
+  --color-background: var(--background);
+  --color-admin-bg: var(--admin-bg);
+  --color-admin-surface: var(--admin-surface);
+  --color-admin-surface-hover: var(--admin-surface-hover);
+  --color-admin-border-strong: var(--admin-border-strong);
+
+  --color-admin-primary: var(--admin-primary);
+  --color-admin-text: var(--admin-text);
+  --color-admin-heading: var(--admin-heading);
+  --color-admin-contrast: var(--admin-contrast);
+  --color-admin-muted: var(--admin-muted);
+
+  --color-admin-accent: var(--admin-accent);
+  --color-admin-success: var(--admin-success);
+  --color-admin-danger: var(--admin-danger);
+  --color-admin-warning: var(--admin-warning);
+  --color-admin-info: var(--admin-info);
+}
+
+@layer base {
+  :root {
+    --background: #FAF9F6;
+    --admin-bg: #F7F2EA;
+    --admin-surface: #FFFFFF;
+    --admin-surface-hover: #EAE3D9;
+    --admin-border-strong: rgba(0, 0, 0, 0.1);
+
+    --admin-primary: #5e5858;
+    --admin-text: #3A332F;
+    --admin-heading: #121212;
+    --admin-contrast: #FFFFFF;
+    --admin-muted: #8E8A86;
+
+    --admin-accent: #1DB954;
+    --admin-success: #1DB954;
+    --admin-danger: #E91429;
+    --admin-warning: #F97316;
+    /* Orange */
+    --admin-info: #A855F7;
+    /* Purple */
+  }
+
+  .dark {
+    --background: #0A0C10;
+    --admin-bg: #12141C;
+    --admin-surface: #1B1F2A;
+    --admin-surface-hover: #252B3A;
+    --admin-border-strong: rgba(255, 255, 255, 0.08);
+
+    --admin-primary: #000000;
+    --admin-text: #E2E8F0;
+    --admin-heading: #F8FAFC;
+    --admin-contrast: #FFFFFF;
+    --admin-muted: #64748B;
+
+    --admin-accent: #1DB954;
+    --admin-success: #1DB954;
+    --admin-danger: #EF4444;
+    --admin-warning: #FB923C;
+    /* Lighter Orange */
+    --admin-info: #C084FC;
+    /* Lighter Purple */
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--admin-text);
+  }
+}
+
+/* --- Brutalist Toast Styling for Sonner --- */
+[data-sonner-toast] {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif !important;
+}
+
+.brutalist-toast-success {
+  border-left: 8px solid var(--admin-success) !important;
+}
+
+.brutalist-toast-error {
+  border-left: 8px solid var(--admin-danger) !important;
+}
+
+.brutalist-toast-info {
+  border-left: 8px solid var(--admin-accent) !important;
+}
