@@ -30,7 +30,7 @@ export function Logo({ onClick, className = "text-2xl", variant = "vertical", hr
               TUKLAS
             </span>
             <span className="text-[10px] font-black text-admin-muted uppercase tracking-[0.3em]">
-              v{pkg.version}
+              OSS v{pkg.version}
             </span>
           </div>
         </Link>
@@ -50,7 +50,7 @@ export function Logo({ onClick, className = "text-2xl", variant = "vertical", hr
             TUKLAS
           </span>
           <span className="text-[10px] font-black text-admin-muted tracking-[0.2em] mt-1 ml-0.5">
-            V{pkg.version}
+            OSS v{pkg.version}
           </span>
         </div>
       </Link>
