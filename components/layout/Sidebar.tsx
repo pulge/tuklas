@@ -5,6 +5,7 @@ import { useTheme } from "next-themes";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import pkg from "../../package.json";
 import { Logo, LogoIcon } from "../ui/Logo";
 
 export function Sidebar() {
@@ -79,9 +80,9 @@ export function Sidebar() {
             {!isCollapsed && <span>{theme === "dark" ? "Light Mode" : "Dark Mode"}</span>}
           </button>
         )}
-        
+
         <div className={`w-full text-center py-2 ${isCollapsed ? 'opacity-0' : 'opacity-30'}`}>
-          <p className="text-[8px] font-black uppercase tracking-widest text-admin-contrast">OSS v0.7.0</p>
+          <p className="text-[8px] font-black uppercase tracking-widest text-admin-contrast">OSS {pkg.version}</p>
         </div>
       </div>
     </aside>
