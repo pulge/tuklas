@@ -42,7 +42,8 @@ export async function ingestJobs(
         salary: j.salary || null,
         description: j.description || null,
         postedAt: j.postedAt || null,
-        status: 'new'
+        status: 'new',
+        createdAt: new Date().toISOString()
       });
     }
   }

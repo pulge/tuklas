@@ -1,3 +1,4 @@
+import { parseRelativeDate } from './utils';
 import { ParsedJob } from './types';
 
 /**
@@ -70,6 +71,7 @@ export async function scrapeJSearch(
     job_salary_period?: string;
     job_description?: string;
     job_posted_at_datetime_utc?: string;
+    job_posted_at_timestamp?: number;
   }
 
   return (data.data as JSearchJob[]).map((job) => ({
@@ -83,6 +85,7 @@ export async function scrapeJSearch(
         ? `${job.job_salary_currency ?? 'PHP'} ${job.job_min_salary}–${job.job_max_salary} ${job.job_salary_period ?? ''}`
         : undefined,
     description: job.job_description?.substring(0, 500) ?? undefined,
-    postedAt: job.job_posted_at_datetime_utc,
+    postedAt: parseRelativeDate(job.job_posted_at_datetime_utc) || 
+              (job.job_posted_at_timestamp ? new Date(job.job_posted_at_timestamp * 1000).toISOString() : undefined),
   }));
 }

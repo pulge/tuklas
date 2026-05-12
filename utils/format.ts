@@ -1,6 +1,8 @@
 export function formatDate(dateString?: string): string {
   if (!dateString) return "Unknown date";
-  return new Date(dateString).toLocaleDateString(undefined, {
+  const date = new Date(dateString);
+  if (isNaN(date.getTime())) return "Unknown date";
+  return date.toLocaleDateString(undefined, {
     year: "numeric",
     month: "short",
     day: "numeric",
@@ -21,6 +23,8 @@ export function formatRelativeTime(dateString?: string): string {
   if (!dateString) return "Unknown date";
   
   const date = new Date(dateString);
+  if (isNaN(date.getTime())) return "Unknown date";
+  
   const now = new Date();
   const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
   

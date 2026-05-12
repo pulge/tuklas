@@ -2,14 +2,20 @@
  * Parses relative date strings like "3 days ago", "2h ago", "Posted 30+ days ago"
  * into an ISO 8601 string.
  */
-export function parseRelativeDate(relativeStr: string): string | undefined {
-  if (!relativeStr) return undefined;
-  
+export function parseRelativeDate(relativeStr: string | null | undefined): string | undefined {
+  if (!relativeStr || relativeStr.trim() === '') return undefined;
+
+  // 1. Check if it's already a valid absolute date string (e.g. ISO from JSearch)
+  const asDate = new Date(relativeStr);
+  if (!isNaN(asDate.getTime())) {
+    return asDate.toISOString();
+  }
+
   const now = new Date();
   const lower = relativeStr.toLowerCase();
-  
-  // Extract number and unit
-  // Matches "3 days", "2h", "1 month", "24 hours", etc.
+
+  // 2. Extract number and unit
+  // Matches "3 days", "2h", "1 month", "24 hours", "30+ days", etc.
   const match = lower.match(/(\d+)\+?\s*(min|hour|hr|day|wk|week|month|yr|year)s?/i);
   
   if (!match) {
