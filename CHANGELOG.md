@@ -3,14 +3,11 @@
 
 ### Features
 
-* initial OSS baseline from cloud fork ([40da687](https://github.com/pulge/tuklas/commit/40da68733ff40022dcc47fb257f24f35801a2b6c))
-
-# 1.0.0 (2026-05-12)
-
-
-### Features
-
-* initial OSS baseline from cloud fork ([40da687](https://github.com/pulge/tuklas/commit/40da68733ff40022dcc47fb257f24f35801a2b6c))
+* add JSearch connector and implement job ingestion and formatting utilities ([69c6d3a](https://github.com/pulge/tuklas/commit/69c6d3a))
+* implement Logo component and collapsible Sidebar navigation layout ([b256e27](https://github.com/pulge/tuklas/commit/b256e27))
+* implement collapsable sidebar component with navigation links and theme toggle ([c83b80b](https://github.com/pulge/tuklas/commit/c83b80b))
+* implement integrations management client and backend infrastructure for API keys and LLM service configuration ([dc87ec9](https://github.com/pulge/tuklas/commit/dc87ec9))
+* initial OSS baseline from cloud fork ([517b9d0](https://github.com/pulge/tuklas/commit/517b9d0))
 
 # 1.0.0 (2026-05-06)
 
