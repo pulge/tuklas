@@ -82,6 +82,7 @@ Setting `ENABLE_DIRECT_SCRAPE=true` bypasses JSearch and hits job platforms (Job
 - **Application Tracker** — Track status from applied → interviewing → offer / rejected.
 - **Manual Job Entry** — Add jobs from any platform manually.
 - **BYOK** — Bring Your Own Keys for all API integrations via the Integrations page.
+- **Extensible Connectors** — Add support for any job platform using the standardized connector template.
 
 ---
 
@@ -186,7 +187,11 @@ The database file will be created at `~/.tuklas/tuklas.db` automatically.
 
 ## Contributing
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for commit conventions, branching strategy, and PR guidelines.
+Tuklas is designed to be extensible. You can contribute new job platform connectors to support more sites.
+
+- **Connectors**: See [CONTRIBUTING.md](./CONTRIBUTING.md#contributing-connectors) for a guide on how to add new platforms using the built-in template.
+- **Commit Convention**: We follow [Conventional Commits](https://www.conventionalcommits.org).
+- **Guidelines**: See the full [CONTRIBUTING.md](./CONTRIBUTING.md) for branching strategies and PR checklists.
 
 ---
 
