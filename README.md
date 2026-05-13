@@ -1,8 +1,14 @@
-# Tuklas — Job Hunt Dashboard (OSS)
+<div align="center">
+  <img src="./public/logo.svg" alt="Tuklas Logo" width="120" height="120" />
+  <h1>Tuklas</h1>
+  <p><i>Self-hosted, offline-first job hunting assistant</i></p>
+</div>
+
+---
 
 > *Tuklas* (Filipino, /tuːklɑːs/) — to discover, to uncover, to find.
 
-A self-hosted, offline-first job hunting assistant. Scrape jobs via JSearch, parse email alerts from JobStreet/LinkedIn/Indeed, generate AI cover letters, and track every application — all from your local machine.
+Tuklas is a self-hosted, offline-first job hunting assistant. Scrape jobs via JSearch, parse email alerts from JobStreet/LinkedIn/Indeed, generate AI cover letters, and track every application — all from your local machine.
 
 ---
 
