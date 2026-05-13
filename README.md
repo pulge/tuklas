@@ -3,18 +3,6 @@
   <h1>Tuklas</h1>
   <p><i>Self-hosted, offline-first job hunting assistant</i></p>
   <p>
-    <a href="https://github.com/pulge/tuklas/actions/workflows/ci.yml">
-      <img src="https://github.com/pulge/tuklas/actions/workflows/ci.yml/badge.svg" alt="CI Status" />
-    </a>
-    <a href="https://github.com/pulge/tuklas/blob/main/LICENSE">
-      <img src="https://img.shields.io/github/license/pulge/tuklas?color=blue" alt="License" />
-    </a>
-    <a href="https://github.com/pulge/tuklas/issues">
-      <img src="https://img.shields.io/github/issues/pulge/tuklas?color=orange" alt="Issues" />
-    </a>
-    <a href="https://github.com/pulge/tuklas/releases">
-      <img src="https://img.shields.io/github/v/release/pulge/tuklas?color=green" alt="Release" />
-    </a>
     <img src="https://img.shields.io/badge/Next.js-16-black?logo=next.js" alt="Next.js" />
     <img src="https://img.shields.io/github/languages/top/pulge/tuklas?color=blueviolet" alt="Top Language" />
     <img src="https://img.shields.io/github/repo-size/pulge/tuklas?color=brightgreen" alt="Repo Size" />
