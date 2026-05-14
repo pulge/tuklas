@@ -209,5 +209,4 @@ Tuklas is designed to be extensible. You can contribute new job platform connect
 ## License
 
 [MIT](./LICENSE) — free to use, self-host, fork, and modify. No restrictions.
-
 The hosted product at [tuklas.dev](https://tuklasjobs.vercel.app) is a separate commercial offering.
